@@ -4,4 +4,9 @@ const handleLogin = (email, password) => {
     return axios.post('/login', params);
 };
 
+const getAllUsers = (id) => {
+    const params = new URLSearchParams({ id });
+    return axios.post('/get-all-users', params);
+};
 export default handleLogin;
+export { getAllUsers };
