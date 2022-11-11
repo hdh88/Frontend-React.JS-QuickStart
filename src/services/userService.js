@@ -1,12 +1,21 @@
 import axios from '../axios';
-const handleLogin = (email, password) => {
-    const params = new URLSearchParams({ email, password });
-    return axios.post('/login', params);
+const handleLoginApi = (email, password) => {
+    return axios.post('/login', { email, password });
 };
 
 const getAllUsers = (id) => {
-    const params = new URLSearchParams({ id });
-    return axios.post('/get-all-users', params);
+    return axios.post('/get-all-users', { id });
 };
-export default handleLogin;
-export { getAllUsers };
+
+const createNewUserService = (data) => {
+    return axios.post('/create-new-user', data);
+};
+
+const deleteUserService = (userId) => {
+    // return axios.delete('/delete-user', { id: userId });
+    return axios.delete('/delete-user', {
+        data: { id: userId },
+    });
+};
+export default handleLoginApi;
+export { getAllUsers, createNewUserService, deleteUserService };
