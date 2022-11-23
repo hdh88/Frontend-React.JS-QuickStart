@@ -9,8 +9,7 @@
         display: flex;
 
         .left-content {
-            width: 25%;
-            border: 1px solid green;
+            width: 20%;
             display: flex;
             align-items: center;
             i {
@@ -21,15 +20,15 @@
             }
 
             .header-logo {
-                background: url('../../assets/logo.svg') center no-repeat;
                 height: 100%;
                 width: 100%;
                 cursor: pointer;
+                transform: scale(0.7, 0.7);
+                margin-left: -30px;
             }
         }
         .center-content {
-            width: 50%;
-            border: 1px solid orange;
+            width: 55%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,10 +41,131 @@
         }
         .right-content {
             width: 25%;
-            border: 1px solid gray;
             display: flex;
             align-items: center;
+            justify-content: flex-end;
+            .support {
+                padding-right: 50px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                i {
+                    font-size: 15px;
+                    margin-right: 5px;
+                }
+            }
+
+            .language-vi {
+                cursor: pointer;
+                opacity: 0.2;
+                &.active {
+                    opacity: 1;
+                    span {
+                        color: orange;
+                    }
+                }
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+            .language-en {
+                cursor: pointer;
+                margin: 0 10px;
+                opacity: 0.2;
+                &.active {
+                    opacity: 1;
+                    span {
+                        color: blue;
+                    }
+                }
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+.home-header-banner {
+    background: url('../../assets/header-background.jpeg');
+    height: 575px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .content-up {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.1));
+        padding-top: 15px;
+        height: 70%;
+        .title1 {
+            text-align: center;
+            font-size: 32px;
+            text-shadow: 1px 1px 1px #333;
+            color: white;
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+        .title2 {
+            text-align: center;
+            font-size: 32px;
+            text-shadow: 1px 1px 1px #333;
+            color: white;
+            margin-bottom: 15px;
+        }
+        .search {
+            border: 1px solid red;
+            width: fit-content;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 25px;
+            background: #f7d800;
+            i {
+                margin: 0 5px;
+            }
+            input {
+                height: 30px;
+                width: 400px;
+                background: transparent;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+    .content-down {
+        height: 30%;
+        padding: 0 50px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+        .options {
+            text-align: center;
+            display: flex;
+            gap: 50px;
             justify-content: center;
+            .option-child {
+                width: 100px;
+                .icon-child {
+                    background: white;
+                    width: 40px;
+                    height: 40px;
+                    padding: 10px;
+                    border-radius: 50%;
+                    text-align: center;
+                    margin: 0 auto;
+                    i {
+                        font-size: 20px;
+                        color: #49bce2;
+                    }
+                }
+                .text-child {
+                    font-size: 17px;
+                    font-weight: 500;
+                    &:hover {
+                        color: #49bce2;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
 }
