@@ -23,5 +23,9 @@ const editUserService = (inputData) => {
     return axios.put('/edit-user', inputData);
 };
 
+const getAllCodeService = (inputData) => {
+    return axios.get(`/allcode?type=${inputData}`);
+};
+
 export default handleLoginApi;
-export { getAllUsers, createNewUserService, deleteUserService, editUserService };
+export { getAllUsers, createNewUserService, deleteUserService, editUserService, getAllCodeService };

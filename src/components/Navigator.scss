@@ -1,4 +1,4 @@
-@import "../styles/common.scss";
+@import '../styles/common.scss';
 
 .navigator-menu {
     display: flex;
@@ -68,6 +68,10 @@
                             color: $colormain;
                         }
                     }
+                }
+                &.active a {
+                    font-weight: 500;
+                    color: $colormain;
                 }
                 &.active span {
                     font-weight: 500;
