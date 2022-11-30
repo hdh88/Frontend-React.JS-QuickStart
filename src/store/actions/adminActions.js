@@ -1,5 +1,5 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService } from '../../services/userService';
+import { getAllCodeService, createNewUserService, getAllUsers } from '../../services/userService';
 
 export const fetchGenderStart = () => {
     return async (dispatch, getState) => {
@@ -74,4 +74,52 @@ export const fetchRoleSuccess = (roleData) => ({
 });
 export const fetchRoleFailed = () => ({
     type: actionTypes.FETCH_ROLE_FAILD,
+});
+
+export const createNewUser = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await createNewUserService(data);
+            if (res && res.errCode === 0) {
+                dispatch(saveUserSuccess());
+                dispatch(fetchAllUsersStart());
+            } else {
+                dispatch(saveUserFailed());
+            }
+        } catch (e) {
+            dispatch(saveUserFailed());
+            console.log('fetchGendersStart ', e);
+        }
+    };
+};
+
+export const saveUserSuccess = () => ({
+    type: actionTypes.CREATE_USER_SUCCESS,
+});
+export const saveUserFailed = () => ({
+    type: actionTypes.CREATE_USER_FAILED,
+});
+
+export const fetchAllUsersStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllUsers('ALL');
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllUsersSuccess(res.users.reverse()));
+            } else {
+                dispatch(fetchAllUsersFailed());
+            }
+        } catch (e) {
+            dispatch(fetchAllUsersFailed());
+            console.log('fetchPositionsStart ', e);
+        }
+    };
+};
+
+export const fetchAllUsersSuccess = (data) => ({
+    type: actionTypes.FETCH_ALL_USERS_SUCCESS,
+    users: data,
+});
+export const fetchAllUsersFailed = (data) => ({
+    type: actionTypes.FETCH_ALL_USERS_FAILED,
 });
